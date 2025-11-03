@@ -98,7 +98,8 @@ body, html {
   gap: 10px;
 }
 
-#groups-container select, #groups-container input {
+#groups-container select, 
+#groups-container input {
   width: 100%;
   padding: 8px;
   border-radius: 5px;
@@ -197,18 +198,146 @@ body, html {
   border-radius: 3px;
 }
 
-/* Media queries */
+/* ===================== */
+/* 📱 Responsive Styles  */
+/* ===================== */
+
+/* Tablet (≤768px) */
 @media screen and (max-width: 768px) {
   #chat-screen {
     flex-direction: column;
+    height: 100vh;
   }
+
   #sidebar {
     width: 100%;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     overflow-x: auto;
   }
-  #groups-container select, #groups-container input {
-    width: auto;
+
+  #sidebar-header {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  #groups-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+  }
+
+  #groups-container select, 
+  #groups-container input {
     flex: 1;
+    min-width: 120px;
+  }
+
+  #messages {
+    padding: 8px;
+  }
+
+  #messageInput {
+    font-size: 0.9rem;
+  }
+
+  #sendBtn {
+    padding: 8px 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #chat-screen {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  /* Sidebar (Groups section at top) */
+  #sidebar {
+    width: 100%;
+    height: auto;
+    max-height: 15vh;
+    background-color: #075e54;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+
+  #sidebar-header {
+    font-size: 1.1rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+
+  /* Chat area below sidebar */
+  #chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    background-color: #ece5dd;
+  }
+
+  #messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 10px;
+    scroll-behavior: smooth;
+  }
+
+  /* Message bubbles */
+  .message {
+    max-width: 85%;
+    margin-bottom: 6px;
+    padding: 8px 12px;
+    border-radius: 18px;
+    font-size: 0.9rem;
+    word-wrap: break-word;
+  }
+
+  /* Input section (fixed at bottom) */
+  #inputRow {
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;
+    gap: 6px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    background-color: #f0f0f0;
+    flex-shrink: 0;
+  }
+
+  #messageInput {
+    flex: 1;
+    padding: 8px 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 0.9rem;
+  }
+
+  #sendBtn {
+    padding: 8px 14px;
+    border-radius: 20px;
+    border: none;
+    background-color: #25d366;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
+  #sendBtn:hover {
+    background-color: #128c7e;
   }
 }
